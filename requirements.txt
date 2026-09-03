@@ -1,0 +1,7 @@
+pandas
+numpy
+matplotlib
+beautifulsoup4
+requests
+openpyxl
+psycopg2-binary
