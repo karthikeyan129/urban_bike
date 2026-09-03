@@ -1,76 +1,69 @@
 # 🚲 Urban Bike Rental Demand & Operations Analysis
 
-> **A data-driven analysis of Seoul's bike-sharing system to identify demand patterns, operational challenges, weather impacts, and actionable business opportunities.**
+> Data-driven analysis of Seoul's bike-sharing demand to identify
+> peak rental periods, seasonal patterns, weather effects and
+> operational opportunities.
 
 ---
 
 ## 📌 Project Overview
 
-Urban bike-sharing systems need to maintain the right number of bikes at the right locations and at the right time.
+This project analyzes hourly bike rental demand in Seoul using
+historical rental, weather, seasonal and calendar information.
 
-This project analyzes **hourly bike rental demand in Seoul** using historical rental, weather, seasonal, and operational data.
-
-The objective is to transform raw bike-sharing data into meaningful business insights that can support:
-
-* 📈 Demand forecasting
-* 🚲 Fleet allocation
-* 🌦️ Weather-aware operations
-* 🕐 Peak-hour planning
-* 📅 Seasonal resource planning
-* 💼 Data-driven business decisions
+The goal is to identify when demand is highest and provide
+data-driven recommendations for bike fleet and operational planning.
 
 ---
 
-## 🎯 Business Objective
+## 🎯 Business Objectives
 
-The primary objective of this project is to answer:
+The project answers the following questions:
 
-> **"When, why, and under what conditions does bike rental demand increase or decrease, and how can the business use these insights to improve operations?"**
-
-### Key Questions
-
-1. What are the peak bike rental hours?
-2. Which seasons generate the highest demand?
-3. How does weather affect bike rentals?
-4. How does demand change throughout the year?
-5. What is the difference between holiday and non-holiday demand?
-6. How can bike availability and operational resources be optimized?
+1. Which hours have the highest bike demand?
+2. Which season generates the most rentals?
+3. Do holidays affect bike usage?
+4. How does rainfall affect bike demand?
+5. Which season and time category produce the highest demand?
+6. When should the company provide the maximum number of bikes?
 
 ---
 
-## 🗂️ Dataset
+## 📊 Dataset
 
 **Dataset:** Seoul Bike Sharing Demand Dataset
 
-The dataset contains hourly observations of bike rentals in Seoul along with environmental and operational variables.
+The dataset contains hourly bike rental observations along with:
 
-### Major Variables
-
-| Category       | Variables                                     |
-| -------------- | --------------------------------------------- |
-| Rental Demand  | Rented Bike Count                             |
-| Time           | Date, Hour                                    |
-| Weather        | Temperature, Humidity, Wind Speed, Visibility |
-| Weather Events | Rainfall, Snowfall                            |
-| Environment    | Solar Radiation, Dew Point Temperature        |
-| Calendar       | Seasons, Holiday                              |
-| Operations     | Functioning Day                               |
+- Rental count
+- Hour
+- Temperature
+- Humidity
+- Wind speed
+- Visibility
+- Dew point temperature
+- Solar radiation
+- Rainfall
+- Snowfall
+- Seasons
+- Holiday
+- Functioning Day
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Technologies
 
-| Technology         | Purpose                           |
-| ------------------ | --------------------------------- |
-| 🐍 Python          | Data analysis                     |
-| 🐼 Pandas          | Data cleaning & manipulation      |
-| 🔢 NumPy           | Numerical operations              |
-| 📊 Matplotlib      | Data visualization                |
-| 🍃 BeautifulSoup   | Seoul attraction data collection  |
-| 🗄️ PostgreSQL     | Business-oriented SQL analysis    |
-| 📗 Microsoft Excel | Pivot analysis & reporting        |
-| 📊 Power BI        | Interactive dashboard             |
-| 🐙 GitHub          | Version control & project sharing |
+| Technology | Purpose |
+|---|---|
+| Python | Data analysis |
+| Pandas | Data cleaning and analysis |
+| NumPy | Numerical processing |
+| BeautifulSoup | Web scraping |
+| Requests | Web requests |
+| PostgreSQL | SQL business analysis |
+| Excel | Pivot analysis and charts |
+| Power BI | Interactive dashboard |
+| GitHub | Version control |
 
 ---
 
@@ -78,201 +71,138 @@ The dataset contains hourly observations of bike rentals in Seoul along with env
 
 ```text
 Raw Dataset
-     ↓
+    ↓
 Data Cleaning
-     ↓
-Exploratory Data Analysis
-     ↓
+    ↓
 Feature Engineering
-     ↓
-Weather & Seasonal Analysis
-     ↓
-Web Scraping — Seoul Attractions
-     ↓
-PostgreSQL Business Analysis
-     ↓
+    ↓
+Time & Weather Categorization
+    ↓
+Business Analysis
+    ↓
+BeautifulSoup Web Scraping
+    ↓
+PostgreSQL Analysis
+    ↓
 Excel Reporting
-     ↓
+    ↓
 Power BI Dashboard
-     ↓
-Business Insights
-     ↓
-Recommendations
-```
+    ↓
+Business Recommendations
+🐍 Python Analysis
 
----
+The Python stage performs:
 
-## 🔍 Data Analysis
+Dataset inspection
+Data type validation
+Missing-value checking
+Duplicate checking
+Date conversion
+Invalid-value handling
+Feature engineering
+Time category creation
+Weather category creation
+Hourly demand analysis
+Seasonal analysis
+Holiday analysis
+Rainfall analysis
+Weather correlation analysis
+Time Categories
+Hours	Category
+05:00–11:00	Morning
+12:00–16:00	Afternoon
+17:00–21:00	Evening
+Remaining hours	Night
+Weather Categories
+Rainfall	Category
+0 mm	No Rain
+>0 to 5 mm	Light Rain
+>5 mm	Heavy Rain
+🕸️ Web Scraping
 
-The Python/Pandas stage covers:
+BeautifulSoup is used to collect Seoul attraction information
+from the official Visit Seoul attractions page.
 
-* Dataset inspection
-* Data type validation
-* Missing-value analysis
-* Duplicate detection
-* Descriptive statistics
-* Feature engineering
-* Hourly demand analysis
-* Seasonal analysis
-* Monthly analysis
-* Weather correlation analysis
-* Holiday analysis
-* Operational-day analysis
+The output contains:
 
----
+Attraction
+Category
+Area
+URL
 
-## 🌦️ Weather Analysis
+Output:
 
-Weather variables are analyzed to understand their relationship with bike demand.
-
-Key factors include:
-
-* Temperature
-* Humidity
-* Rainfall
-* Snowfall
-* Wind Speed
-* Visibility
-* Solar Radiation
-* Dew Point Temperature
-
-This helps identify how environmental conditions influence customer demand and operational requirements.
-
----
-
-## 🕐 Demand Analysis
-
-The project analyzes demand across:
-
-### Hourly
-
-Identifies peak and low-demand periods to support fleet redistribution and staffing.
-
-### Monthly
-
-Highlights changes in demand throughout the year.
-
-### Seasonal
-
-Compares Spring, Summer, Autumn, and Winter demand.
-
-### Holiday
-
-Compares demand between holidays and regular days.
-
----
-
-## 🗄️ PostgreSQL Analysis
-
-Five business-focused SQL queries are included to answer operational questions such as:
-
-1. Peak rental hours
-2. Seasonal demand
-3. Weather impact
-4. Holiday vs non-holiday demand
-5. Monthly rental trends
-
-SQL scripts are available in:
-
-```text
-sql/business_queries.sql
-```
-
----
-
-## 🕸️ Web Scraping
-
-BeautifulSoup is used to collect information about Seoul attractions.
-
-The scraper generates:
-
-```text
 seoul_attractions.csv
-```
 
-This additional dataset provides contextual information about Seoul locations that can potentially support future geographic and tourism-oriented analysis.
+Source:
 
----
+https://english.visitseoul.net/attractions
+🗄️ PostgreSQL
 
-## 📊 Excel Analysis
+Five business queries are included:
+
+Top 5 hours by average demand
+Highest-demand season
+Holiday vs non-holiday average demand
+Rainfall category comparison
+Highest-demand season + time category
+
+SQL file:
+
+sql/business_queries.sql
+📗 Excel
 
 The Excel workbook contains:
 
-* Summary analysis
-* Hourly demand analysis
-* Seasonal analysis
-* Monthly analysis
-* Weather correlation analysis
-* Pivot-style reporting
-* Charts
+Rentals by hour
+Rentals by season
+Holiday vs non-holiday analysis
+Conditional formatting
+Hourly demand chart
 
-### Output
+Output:
 
-```text
 bike_sharing_analysis.xlsx
-```
+📊 Power BI
 
----
+Dashboard:
+Urban Bike Demand Operations Dashboard
 
-## 📈 Power BI Dashboard
+KPIs
+Total Bike Rentals
+Average Hourly Rentals
+Peak Rental Hour
+Highest-Demand Season
+Visuals
+Rentals by Hour
+Rentals by Season
+Temperature vs Rentals
+Rainfall vs Rentals
+Holiday vs Non-Holiday
+Time Category vs Rentals
+Slicers
+Season
+Holiday
+Time Category
+Weather Category
+💡 Key Findings
 
-### Dashboard Name
+The analysis identifies:
 
-**Urban Bike Demand Operations Dashboard**
+Peak rental hours
+Highest-demand season
+Holiday demand differences
+Weather-related demand changes
+Highest-demand season and time combination
 
-### Planned KPIs
+See:
+reports/FINAL_FINDINGS.md
+🚀 Business Recommendations
 
-* Total Rentals
-* Average Hourly Rentals
-* Peak Rental Hour
-* Peak Season
-* Weather Impact
+The final report provides exactly three recommendations based
+on the analysis results.
 
-### Dashboard Visuals
-
-* Hourly demand trend
-* Monthly demand trend
-* Seasonal comparison
-* Temperature vs rental demand
-* Holiday comparison
-* Hour × Day-of-Week demand matrix
-* Interactive filters
-
----
-
-## 💡 Key Findings
-
-Based on the analysis:
-
-* Evening hours represent the strongest rental-demand period.
-* Summer records the highest overall demand among the seasons.
-* Temperature has a positive relationship with bike rental demand.
-* Rain and snowfall are associated with significantly lower rental demand.
-* Demand varies considerably across months.
-* Non-holiday days generally show stronger demand than holidays.
-* Winter requires a different operational strategy because of substantially lower demand.
-
----
-
-## 🚀 Business Recommendations
-
-### 1. Optimize Evening Fleet Redistribution
-
-Increase bike availability and redistribution efforts before the evening demand peak, particularly during the high-demand 17:00–20:00 period.
-
-### 2. Implement Weather-Aware Operations
-
-Use weather forecasts to dynamically adjust fleet movement, staffing, maintenance schedules, and operational resources during adverse weather conditions.
-
-### 3. Adopt Seasonal Capacity Planning
-
-Increase operational capacity during high-demand seasons while reducing unnecessary fleet movement and resource utilization during low-demand winter periods.
-
----
-
-## 📁 Project Structure
-
-```text
+📁 Project Structure
 urban_bike/
 │
 ├── data/
@@ -301,74 +231,43 @@ urban_bike/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-```
-
----
-
-## ⚙️ Installation
+⚙️ Installation
 
 Clone the repository:
 
-```bash
 git clone https://github.com/karthikeyan129/urban_bike.git
 cd urban_bike
-```
 
-Install the required Python libraries:
+Install Python dependencies:
 
-```bash
 pip install -r requirements.txt
-```
-
----
-
-## ▶️ Running the Analysis
-
-Run the Python analysis:
-
-```bash
+▶️ Run Python Analysis
 python python_analysis.py
-```
 
-Run the attraction scraper:
+This generates:
 
-```bash
+data_cleaned.csv
+▶️ Run Web Scraper
 python scrape_attractions.py
-```
 
-The scraper generates:
+This generates:
 
-```text
 seoul_attractions.csv
-```
+👥 Project Information
 
----
+Team: Targaryens
 
-## 👥 Project Information
+Project: Urban Bike Rental Demand and Operations Analysis
 
-**Team:** Targaryens
-**Project:** Urban Bike Rental Demand and Operations Analysis
-**Contributor:** T. Karthikeyan
-**GitHub:** `karthikeyan129`
+Contributor: T. Karthikeyan
 
----
+GitHub: karthikeyan129
 
-## 📌 Future Improvements
+⭐ Project Outcome
 
-Possible extensions include:
+This project demonstrates an end-to-end data analytics workflow
+using Python, BeautifulSoup, PostgreSQL, Excel and Power BI.
 
-* Machine-learning-based demand prediction
-* Geographic station-level analysis
-* Real-time demand forecasting
-* Interactive map visualization
-* Weather-based demand prediction
-* Bike redistribution optimization
-* Integration with live bike availability APIs
-
----
-
-## ⭐ Project Outcome
-
-This project demonstrates an end-to-end **data analytics workflow**, transforming raw bike-sharing data into operational insights using Python, SQL, Excel, web scraping, and Power BI.
-
-The final objective is to help bike-sharing operators make **faster, smarter, and data-driven operational decisions**.
+The analysis converts historical bike-sharing data into
+actionable operational insights for fleet planning and
+resource allocation.
